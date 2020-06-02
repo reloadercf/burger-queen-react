@@ -4,18 +4,27 @@ import {
     Route
   } from "react-router-dom";
 
-import Hello from "./Hello" 
-import Other from "./Other" 
+import Breakfast from './Breakfast/Breakfast' 
+import Launch from './Launch/Launch'
+import History from './History/History'
+import Pending from './Pending/Pending'
+
 function Routes() {
     return (
         <div>
             <Switch>
-        <Route path="/other">
-          <Other />
-        </Route>
-        <Route path="/">
-          <Hello />
-        </Route>
+            <Route path="/desayunos">
+              <Breakfast />
+            </Route>
+            <Route path="/comidas">
+              <Launch />
+            </Route>
+            <Route path="/historial">
+              <History />
+            </Route>
+            <Route path="/">
+              <Pending />
+            </Route>
       </Switch>
         </div>
     );

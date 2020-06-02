@@ -2,10 +2,10 @@ import React from 'react';
 import './app.css'
 import { Layout, Menu } from 'antd';
 import {
-  BarChartOutlined,
-  UserOutlined,
-  UploadOutlined,
-  VideoCameraOutlined,
+  HistoryOutlined,
+  ThunderboltOutlined,
+  CoffeeOutlined,
+  StarOutlined,
 } from '@ant-design/icons';
 import {Link} from 'react-router-dom'
 import Routes from'./components/Routes'
@@ -26,24 +26,24 @@ function App() {
                 >
                 <div className="logo" />
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
-                    <Menu.Item key="1" icon={<UserOutlined />}>
-                    Desayunos
+                    <Menu.Item key="1" icon={<CoffeeOutlined />}>
+                    <Link to="/desayunos">Desayunos</Link>
                     </Menu.Item>
-                    <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                    <Link to="/other">Comida</Link>
+                    <Menu.Item key="2" icon={<StarOutlined />}>
+                    <Link to="/comidas">Comidas</Link>
                     </Menu.Item>
-                    <Menu.Item key="3" icon={<UploadOutlined />}>
+                    <Menu.Item key="3" icon={<ThunderboltOutlined />}>
                     <Link to="/">Ordenes Pendientes</Link>
                     </Menu.Item>
-                    <Menu.Item key="4" icon={<BarChartOutlined />}>
-                    Historial
+                    <Menu.Item key="4" icon={<HistoryOutlined />}>
+                    <Link to="/historial">Historial</Link>
                     </Menu.Item>
                 </Menu>
                 </Sider>
                 <Layout className="site-layout" style={{ marginLeft: 200 }}>
                 <Header className="site-layout-background" style={{ padding: 0,paddingLeft:30 }} >Burger Queen</Header>
                 <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-                    <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
+                    <div className="site-layout-background" style={{ padding: 24 }}>
                         <Routes />
                     </div>
                 </Content>

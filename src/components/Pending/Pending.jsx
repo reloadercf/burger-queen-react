@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Other() {
+function Pending() {
     return (
         <div>
-            <h1>Holaaaaa</h1>
+            Pendientes
         </div>
     );
 }
 
-export default Other;
+export default Pending;
