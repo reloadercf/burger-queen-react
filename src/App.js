@@ -7,7 +7,8 @@ import {
   UploadOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import Hello from'./components/Hello'
+import {Link} from 'react-router-dom'
+import Routes from'./components/Routes'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,10 +30,10 @@ function App() {
                     Desayunos
                     </Menu.Item>
                     <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                    Comida
+                    <Link to="/other">Comida</Link>
                     </Menu.Item>
                     <Menu.Item key="3" icon={<UploadOutlined />}>
-                    Ordenes pendientes
+                    <Link to="/">Ordenes Pendientes</Link>
                     </Menu.Item>
                     <Menu.Item key="4" icon={<BarChartOutlined />}>
                     Historial
@@ -43,7 +44,7 @@ function App() {
                 <Header className="site-layout-background" style={{ padding: 0,paddingLeft:30 }} >Burger Queen</Header>
                 <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
                     <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
-                        <Hello />
+                        <Routes />
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>Carlos Mendoza ©2020 Created for Laboratoria</Footer>

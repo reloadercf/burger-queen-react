@@ -24,3 +24,4 @@ yarn-error.log*
 
 #otros que me caen gordo
 yarn.lock
+package-lock.json
