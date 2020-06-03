@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
-import { Modal,Divider } from 'antd';
-import {AppstoreOutlined} from '@ant-design/icons';
+import { Modal,Divider,Result,Tag } from 'antd';
+import {AppstoreOutlined,DeleteOutlined} from '@ant-design/icons';
 
-function Order({carrito,total}) {
+function Order({carrito,guardarCarrito,total}) {
     let [visible, manipularVisible]=useState(false)
     
     
@@ -18,7 +18,11 @@ function Order({carrito,total}) {
     let handleCancel =()=> {
         manipularVisible(false)
       };  
-      
+    
+    let eliminarPlatillo=id=>{
+        let platillo=carrito.filter(producto=>producto.id!==id)
+        guardarCarrito(platillo)
+    }  
 
     return (
         <div>
@@ -37,11 +41,24 @@ function Order({carrito,total}) {
                 {carrito.length!==0?
                     <span>
                       {carrito.map(platillo=>(
-                        <p className='container-order'>{platillo.nombre} <Divider type="vertical" />${platillo.precio}</p>
+                        <p className='container-order'>
+                            {platillo.nombre}
+                            <Divider type="vertical" />
+                            <span>
+                                <span style={{paddingRight:20}}>${platillo.precio}</span>
+                                <Tag color="red"><DeleteOutlined onClick={()=>eliminarPlatillo(platillo.id)}/></Tag>
+                            </span>
+                        </p>
                         ))}
                         <center><strong>Total a pagar ${total}</strong></center>  
                     </span>
-                :<p>Tu Orden esta vacia</p>}
+                :
+                    <Result
+                    status="404"
+                    title="Orden vacia"
+                    subTitle="No haz agregado ningun platillo"
+                    />
+                }
                 
             </Modal>
         </div>
