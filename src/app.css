@@ -17,8 +17,12 @@
   width: 100%;
   z-index: 1;
 }
-.site-card-wrapper {
+.site-card-wrapper-breakfast {
   background-image: url('./assets/desayuno.jpg');
+  padding: 30px;
+}
+.site-card-wrapper-launch {
+  background-image: url('./assets/burger1.jpg');
   padding: 30px;
 }
 .container-menu{

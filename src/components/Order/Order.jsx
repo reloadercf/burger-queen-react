@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { Modal,Divider,Result,Tag } from 'antd';
 import {AppstoreOutlined,DeleteOutlined} from '@ant-design/icons';
 
-function Order({carrito,guardarCarrito,total}) {
+function Order({carrito,guardarCarrito,total,manipularTotal}) {
     let [visible, manipularVisible]=useState(false)
     
     
@@ -21,6 +21,11 @@ function Order({carrito,guardarCarrito,total}) {
     
     let eliminarPlatillo=id=>{
         let platillo=carrito.filter(producto=>producto.id!==id)
+        let precio=carrito.filter(producto=>producto.id===id)
+        let valueTotal={total}
+        let valueRes=precio[0].precio
+        let resta=valueTotal.total-valueRes
+        manipularTotal(resta)
         guardarCarrito(platillo)
     }  
 

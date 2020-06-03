@@ -68,6 +68,7 @@ function App() {
                         carrito={carrito}
                         guardarCarrito={guardarCarrito}
                         total={total}
+                        manipularTotal={manipularTotal}
                     />
                     <Tag color="magenta">{carrito.length}</Tag>
                 </span>

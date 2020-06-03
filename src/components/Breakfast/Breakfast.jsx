@@ -15,7 +15,7 @@ function Breakfast({desayuno,carrito,guardarCarrito,total,manipularTotal}) {
         fontSize: 14,
       };
     return (
-        <div className="site-card-wrapper">
+        <div className="site-card-wrapper-breakfast">
            <Col >
             {desayuno.map(platillo=>(
                 <Item

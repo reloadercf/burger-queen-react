@@ -17,7 +17,7 @@ function Routes({desayuno,comida,carrito,guardarCarrito,total,manipularTotal}) {
               <Breakfast desayuno={desayuno} carrito={carrito} guardarCarrito={guardarCarrito} total={total} manipularTotal={manipularTotal} />
             </Route>
             <Route path="/comidas">
-              <Launch comida={comida} carrito={carrito} guardarCarrito={guardarCarrito} />
+              <Launch comida={comida} carrito={carrito} guardarCarrito={guardarCarrito} total={total} manipularTotal={manipularTotal} />
             </Route>
             <Route path="/historial">
               <History carrito={carrito} guardarCarrito={guardarCarrito} />
