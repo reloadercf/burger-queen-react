@@ -9,12 +9,12 @@ import Launch from './Launch/Launch'
 import History from './History/History'
 import Pending from './Pending/Pending'
 
-function Routes({desayuno,comida,carrito,guardarCarrito}) {
+function Routes({desayuno,comida,carrito,guardarCarrito,total,manipularTotal}) {
     return (
         <div>
             <Switch>
             <Route path="/desayunos">
-              <Breakfast desayuno={desayuno} carrito={carrito} guardarCarrito={guardarCarrito} />
+              <Breakfast desayuno={desayuno} carrito={carrito} guardarCarrito={guardarCarrito} total={total} manipularTotal={manipularTotal} />
             </Route>
             <Route path="/comidas">
               <Launch comida={comida} carrito={carrito} guardarCarrito={guardarCarrito} />

@@ -30,6 +30,7 @@ function App() {
         {id:10, nombre:"Agua 700ml", precio:7},
     ])
     let [carrito,guardarCarrito]=useState([])
+    let [total, manipularTotal]=useState(0)
 
     return ( 
         <div>
@@ -66,6 +67,7 @@ function App() {
                     <Order
                         carrito={carrito}
                         guardarCarrito={guardarCarrito}
+                        total={total}
                     />
                     <Tag color="magenta">{carrito.length}</Tag>
                 </span>
@@ -80,6 +82,8 @@ function App() {
                         guardarComida={guardarComida}
                         carrito={carrito}
                         guardarCarrito={guardarCarrito}
+                        total={total}
+                        manipularTotal={manipularTotal}
                         />
                     </div>
                 </Content>

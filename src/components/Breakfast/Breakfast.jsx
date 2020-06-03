@@ -3,7 +3,7 @@ import { Col,BackTop,Tag } from 'antd';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import Item from './Item'
 
-function Breakfast({desayuno,carrito,guardarCarrito}) {
+function Breakfast({desayuno,carrito,guardarCarrito,total,manipularTotal}) {
     const style = {
         height: 40,
         width: 70,
@@ -23,7 +23,9 @@ function Breakfast({desayuno,carrito,guardarCarrito}) {
                 key={platillo.id}
                 desayuno={desayuno}
                 carrito={carrito}
-                guardarCarrito={guardarCarrito} 
+                guardarCarrito={guardarCarrito}
+                total={total}
+                manipularTotal={manipularTotal}  
                 />
             ))}
             </Col>

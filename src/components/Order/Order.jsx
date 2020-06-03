@@ -2,8 +2,9 @@ import React,{useState} from 'react';
 import { Modal,Divider } from 'antd';
 import {AppstoreOutlined} from '@ant-design/icons';
 
-function Order({carrito}) {
+function Order({carrito,total}) {
     let [visible, manipularVisible]=useState(false)
+    
     
 
     let showModal = () => {
@@ -17,6 +18,7 @@ function Order({carrito}) {
     let handleCancel =()=> {
         manipularVisible(false)
       };  
+      
 
     return (
         <div>
@@ -33,9 +35,12 @@ function Order({carrito}) {
             >
                 
                 {carrito.length!==0?
-                    carrito.map(platillo=>(
+                    <span>
+                      {carrito.map(platillo=>(
                         <p className='container-order'>{platillo.nombre} <Divider type="vertical" />${platillo.precio}</p>
-                    ))
+                        ))}
+                        <center><strong>Total a pagar ${total}</strong></center>  
+                    </span>
                 :<p>Tu Orden esta vacia</p>}
                 
             </Modal>

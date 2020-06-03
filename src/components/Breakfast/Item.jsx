@@ -1,18 +1,27 @@
 import React from 'react';
 import { Card,Button,Col,Tooltip,Statistic,notification } from 'antd';
 
-const Item = ({platillo,desayuno,carrito,guardarCarrito}) => {
+const Item = ({platillo,desayuno,carrito,guardarCarrito,total,manipularTotal}) => {
     let seleccionarPlatillo=id=>{
         let platillo=desayuno.filter(producto=> producto.id===id)[0]
         guardarCarrito([...carrito,platillo])
     }
+
     let openNotificatioSuccess = producto => {
         notification['success']({
           message: producto,
           description:
             'Se agrego correctamente',
         });
-      };
+    }
+    
+
+    let handleTotal=valor=>{
+        let value={total}
+        let suma=value.total+valor
+        manipularTotal(suma)
+    }
+
     return ( 
         <div>
             <Col span={15} style={{paddingBottom:10}}>
@@ -23,6 +32,7 @@ const Item = ({platillo,desayuno,carrito,guardarCarrito}) => {
                             onClick={ ()=>{
                                             seleccionarPlatillo(platillo.id)
                                             openNotificatioSuccess(platillo.nombre)
+                                            handleTotal(platillo.precio)
                                             } 
                         }>
                             Agregar
