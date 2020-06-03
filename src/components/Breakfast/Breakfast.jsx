@@ -1,13 +1,20 @@
 import React from 'react';
-import { Button } from 'antd';
-
-function Breakfast() {
+import { Col } from 'antd';
+import Item from './Item'
+function Breakfast({desayuno,carrito,guardarCarrito}) {
     return (
-        <div>
-            Desayuno
-            <Button type="primary" block>
-                Hamburguesa
-            </Button>
+        <div className="site-card-wrapper">
+           <Col >
+            {desayuno.map(platillo=>(
+                <Item
+                platillo={platillo}
+                key={platillo.id}
+                desayuno={desayuno}
+                carrito={carrito}
+                guardarCarrito={guardarCarrito} 
+                />
+            ))}
+            </Col>
         </div>
     );
 }

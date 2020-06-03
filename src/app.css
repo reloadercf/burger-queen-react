@@ -6,3 +6,18 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.site-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.site-card-wrapper {
+  background-image: url('./assets/desayuno.jpg');
+  padding: 30px;
+}
