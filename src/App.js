@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './app.css'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu,Tag } from 'antd';
 import {
   HistoryOutlined,
   ThunderboltOutlined,
@@ -13,7 +13,7 @@ import Routes from'./components/Routes'
 
 
 const { Header, Content, Footer, Sider } = Layout;
-
+const L=`< Laboratoria >`
 function App() {
     let [desayuno,guardarDesayuno]=useState([
         {id:1, nombre:"Café americano", precio:5},
@@ -73,7 +73,7 @@ function App() {
                         />
                     </div>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Carlos Mendoza ©2020 Created for Laboratoria</Footer>
+            <Footer style={{ textAlign: 'center' }}>Carlos Mendoza ©2020 Created for <Tag color="gold">{L}</Tag></Footer>
                 </Layout>
             </Layout>
         </div>
