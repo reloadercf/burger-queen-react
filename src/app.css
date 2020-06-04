@@ -1,0 +1,38 @@
+#components-layout-demo-fixed-sider .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.site-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.site-card-wrapper-breakfast {
+  background-image: url('./assets/desayuno.jpg');
+  padding: 30px;
+}
+.site-card-wrapper-launch {
+  background-image: url('./assets/burger1.jpg');
+  padding: 30px;
+}
+.container-menu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.container-order{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: auto;
+}
