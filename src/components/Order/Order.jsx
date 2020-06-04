@@ -2,7 +2,8 @@ import React,{useState} from 'react';
 import { Modal,Divider,Result,Tag } from 'antd';
 import {AppstoreOutlined,DeleteOutlined} from '@ant-design/icons';
 
-function Order({carrito,guardarCarrito,total,manipularTotal}) {
+function Order({carrito={items:[]},guardarCarrito,total,manipularTotal}) {
+    console.log(carrito)
     let [visible, manipularVisible]=useState(false)
     
     
@@ -20,8 +21,8 @@ function Order({carrito,guardarCarrito,total,manipularTotal}) {
       };  
     
     let eliminarPlatillo=id=>{
-        let platillo=carrito.filter(producto=>producto.id!==id)
-        let precio=carrito.filter(producto=>producto.id===id)
+        let platillo=carrito.items.filter(producto=>producto.id!==id)
+        let precio=carrito.items.filter(producto=>producto.id===id) // platillo.price PUNTOS MENOS NO TE CONSIDERO PRO
         let valueTotal={total}
         let valueRes=precio[0].precio
         let resta=valueTotal.total-valueRes
@@ -43,9 +44,9 @@ function Order({carrito,guardarCarrito,total,manipularTotal}) {
                 onCancel={()=>handleCancel()}
             >
                 
-                {carrito.length!==0?
+                {carrito.items.length!==0?
                     <span>
-                      {carrito.map(platillo=>(
+                      {carrito.items.map(platillo=>(
                         <p className='container-order'>
                             {platillo.nombre}
                             <Divider type="vertical" />

@@ -2,9 +2,11 @@ import React from 'react';
 import { Card,Button,Col,Tooltip,Statistic,notification } from 'antd';
 
 const Item = ({platillo,desayuno,carrito,guardarCarrito,total,manipularTotal}) => {
-    let seleccionarPlatillo=id=>{
-        let platillo=desayuno.filter(producto=> producto.id===id)[0]
-        guardarCarrito([...carrito,platillo])
+    let seleccionarPlatillo=id=>{ // tu estructura es un array,  
+        // OLVIDA DE QUE ES ESPAÑOL DESAYUNO EN LENGUAJE DE TU PREFERENCIA (ESPAÑOL) ES SINGULAR, PERO DENTRO TIENE UN ARRAY, ENTONCES NI EN EL LENGUAJE DE TU PREFERENCIA EXISTE LA SEMANTICA
+        let platillo=desayuno.find(producto=> producto.id===id) //MALDITA SEA CON EL ESPAÑOL
+        // SU PTM CUANDO UN EMPLEADOR VEA ESTO SE VA A CAGAR Y DESCARTAR EN AUTOMÁTICO, YO LO HARÍA.
+        guardarCarrito(platillo) // PÉSIMO EL PUTO ESPAÑOL
     }
 
     let openNotificatioSuccess = producto => {

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './app.css'
 import { Layout, Menu,Tag } from 'antd';
 import {
@@ -14,13 +14,16 @@ import Order from './components/Order/Order'
 
 const { Header, Content, Footer, Sider } = Layout;
 const L=`< Laboratoria >`
+
 function App() {
+
     const [desayuno,guardarDesayuno]=useState([
         {id:1, nombre:"Café americano", precio:5},
         {id:2, nombre:"Café con leche", precio:7},
         {id:3, nombre:"Sandwich de jamón y queso", precio:10},
         {id:4, nombre:"Jugo de frutas natural", precio:7}
     ])
+
     const [comida,guardarComida]=useState([
         {id:5, nombre:"Hamburguesa simple", precio:10},
         {id:6, nombre:"Hamburguesa doble", precio:15},
@@ -29,8 +32,28 @@ function App() {
         {id:9, nombre:"Agua 500ml", precio:5},
         {id:10, nombre:"Agua 700ml", precio:7},
     ])
-    let [carrito,guardarCarrito]=useState([])
+
+    let [carrito,guardarCarrito]=useState({
+        client:"Carlos",
+        items:[],
+        total:0,
+        paid:false
+    })
+    // el último paso con firebase es simplemente guardar / actualizar estas cajas
+    useEffect(()=>{
+        // subo el carrito a firebase
+        //updateFirebaseCart(carrito)
+    },[carrito])
+
     let [total, manipularTotal]=useState(0)
+
+    function addCartItem(item){
+       guardarCarrito({...carrito, items:[...carrito.items, item]}) 
+    }
+
+    function updateClient(name){ // se la entregas al componente correspondiente
+        guardarCarrito({...carrito, client:name}) 
+    }
 
     return ( 
         <div>
@@ -66,7 +89,7 @@ function App() {
                 <span className='container-menu'>
                     <Order
                         carrito={carrito}
-                        guardarCarrito={guardarCarrito}
+                        guardarCarrito={addCartItem}
                         total={total}
                         manipularTotal={manipularTotal}
                     />
@@ -82,7 +105,7 @@ function App() {
                         comida={comida}
                         guardarComida={guardarComida}
                         carrito={carrito}
-                        guardarCarrito={guardarCarrito}
+                        guardarCarrito={addCartItem}
                         total={total}
                         manipularTotal={manipularTotal}
                         />
